@@ -19,10 +19,18 @@ export default class Main extends Component {
             //flex는 배치 방향에 따라 width일수도 height일수도 있다
             //기본이 수직(column)이므로 현재 flex는 height을 의미
             //최상위 뷰는 1개만 있으므로 화면 전체를 사용하려면 100%도 되지만 RN은 사이즈를 정할 때 flex 스타일을 권장
-            <View style={{flex:1}}>
-                <View style={{flex:1, backgroundColor:"red"}}></View>
-                <View style={{flex:2, backgroundColor:"green"}}></View>
-                <View style={{flex:4, backgroundColor:"blue"}}></View>
+            // <View style={{flex:1}}>
+            //     <View style={{flex:1, backgroundColor:"red"}}></View>
+            //     <View style={{flex:2, backgroundColor:"green"}}></View>
+            //     <View style={{flex:4, backgroundColor:"blue"}}></View>
+            // </View>
+
+            //기본 배치 방향이 수직 - 수평 배치 연습
+            <View style={{flex:1, flexDirection:"row"}}>
+                <View style={{backgroundColor:"red", flex:1}}></View>
+                <View style={{backgroundColor:"blue", flex:2}}></View>
+                <View style={{backgroundColor:"green", flex:4}}></View>
+                {/* 수평 배치일 때, 자식 뷰들의 flex는 width를 의미 */}
             </View>
         )
     }
