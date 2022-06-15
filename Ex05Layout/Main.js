@@ -26,11 +26,20 @@ export default class Main extends Component {
             // </View>
 
             //기본 배치 방향이 수직 - 수평 배치 연습
-            <View style={{flex:1, flexDirection:"row"}}>
-                <View style={{backgroundColor:"red", flex:1}}></View>
-                <View style={{backgroundColor:"blue", flex:2}}></View>
-                <View style={{backgroundColor:"green", flex:4}}></View>
-                {/* 수평 배치일 때, 자식 뷰들의 flex는 width를 의미 */}
+            // <View style={{flex:1, flexDirection:"row"}}>
+            //     <View style={{backgroundColor:"red", flex:1}}></View>
+            //     <View style={{backgroundColor:"blue", flex:2}}></View>
+            //     <View style={{backgroundColor:"green", flex:4}}></View>
+            //     {/* 수평 배치일 때, 자식 뷰들의 flex는 width를 의미 */}
+            // </View>
+
+            //자식 뷰들에 사이즈를 직접 주고, 배치(정렬)를 여러 형태로 적용해보기
+            //수직 배치일때
+            //justifyContent, alignItems 정렬 속성 연습
+            <View style={{flex:1, flexDirection:"column", justifyContent:"space-between", alignItems:"center"}}>
+                <View style={{width:50, height:50, backgroundColor:"red"}}></View>
+                <View style={{width:50, height:50, backgroundColor:"green"}}></View>
+                <View style={{width:50, height:50, backgroundColor:"blue"}}></View>
             </View>
         )
     }
