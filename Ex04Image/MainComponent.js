@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Image, TouchableOpacity, Alert, TouchableHighlight, TouchableNativeFeedback, Text, ImageBackground} from 'react-native'
+import {View, Image, TouchableOpacity, Alert, TouchableHighlight, TouchableNativeFeedback, Text, ImageBackground, ScrollView} from 'react-native'
 
 class MainComponent extends Component {
 
@@ -21,10 +21,10 @@ class MainComponent extends Component {
         return (
             //전체 뷰에 배경 이미지 적용 - 스타일로 적용 불가
             //배경 이미지용 뷰가 따로 있다
-            <View style={{flex:1}}>
+            <ScrollView style={{flex:1,}} horizontal={false}>
                 <ImageBackground
                     source={{uri:"https://cdn.pixabay.com/photo/2022/05/31/14/17/sea-7233669_960_720.jpg"}}
-                    style={{width:"100%",height:"100%",}}
+                    style={{width:"100%",height:"100%", flexDirection:"column"}}
                     resizeMode="stretch">
                     {/* 그림 이미지는 require()함수 이용 - 별도의 스타일이 없다면 기본 원본 사이즈 */}
                     <Image
@@ -73,8 +73,20 @@ class MainComponent extends Component {
                             source={this.state.imgArr[this.state.imgNum]}>
                         </Image>
                     </TouchableOpacity>
+                    <Image
+                        style={{ width: 200, height: 100 }}
+                        source={require('./image/moana04.jpg')}>
+                    </Image>
+                    <Image
+                        style={{ width: 200, height: 100 }}
+                        source={require('./image/moana04.jpg')}>
+                    </Image>
+                    <Image
+                        style={{ width: 200, height: 100 }}
+                        source={require('./image/moana04.jpg')}>
+                    </Image>
                 </ImageBackground>
-            </View>
+            </ScrollView>
         )
     }
 
