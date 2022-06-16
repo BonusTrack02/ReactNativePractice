@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {View, Text, StyleSheet, Button} from 'react-native'
+import MyComponent3 from "./MyComponent3";
 
 export default class Main extends Component {
     render() {
@@ -17,8 +18,17 @@ export default class Main extends Component {
                 <MyComponent2 name="park" btnTitle="취소" color="green"></MyComponent2>
 
                 {/* 별도의 js문서에 CustomComponent 만들어도 된다 */}
+                {/* 속성으로 값 전달말고 함수도 전달 가능 */}
+                <MyComponent3 onPress={this.clickBtn} title="button"></MyComponent3>
+                
+                
             </View>
         )
+    }
+
+    //CustomComponent로 전달할 함수
+    clickBtn = () => {
+        alert("clicked btn")
     }
 }
 
