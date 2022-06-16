@@ -1,7 +1,10 @@
 import React, {Component} from "react";
 import {View, Text, StyleSheet, Button} from 'react-native'
+import ComponentA from "./ComponentA";
+import ComponentB from "./ComponentB";
 import MyComponent3 from "./MyComponent3";
 import MyComponent4 from "./MyComponent4";
+import MyComponent5 from "./MyComponent5";
 
 export default class Main extends Component {
     render() {
@@ -30,9 +33,24 @@ export default class Main extends Component {
                 <MyComponent4 title="aaa"></MyComponent4>
                 <MyComponent4 color="red"></MyComponent4>
 
-                
+                {/* 여러 개의 속성 값이 전달될 때 조금 쉽게 이 props를 적용하는 컴포넌트 */}
+                <MyComponent5 title="bbb"></MyComponent5>
+                <MyComponent5 title="ccc" color="black"></MyComponent5>
+
+                {/* 컴포넌트끼리의 통신은 기본적으로 불가능 */}
+                {/* 배치 상의 부모 컴포넌트가 자식 컴포넌트들의 통신을 대신 수행해준다 */}
+                <ComponentA message={this.state.msg}></ComponentA>
+                <ComponentB onPress={this.changeText}></ComponentB>
             </View>
         )
+    }
+
+    state = {
+        msg:"Hello",
+    }
+
+    changeText = () => {
+        this.setState({msg:"nice to meet you"})
     }
 
     //CustomComponent로 전달할 함수
