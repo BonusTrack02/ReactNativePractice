@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {View, Text, StyleSheet, Button} from 'react-native'
 import MyComponent3 from "./MyComponent3";
+import MyComponent4 from "./MyComponent4";
 
 export default class Main extends Component {
     render() {
@@ -21,6 +22,14 @@ export default class Main extends Component {
                 {/* 속성으로 값 전달말고 함수도 전달 가능 */}
                 <MyComponent3 onPress={this.clickBtn} title="button"></MyComponent3>
                 
+                {/* 만약 속성 값 중 일부를 전달하지 않으면? 무조건 에러는 아니다 - 필수 여부에 따라 다르다 */}
+                <MyComponent3 title='버튼'></MyComponent3>
+
+                {/* 혹시, 속성 값이 모두 전달되지 않을 때 기본 값이 적용되는 컴포넌트 만들어보기 */}
+                <MyComponent4></MyComponent4>
+                <MyComponent4 title="aaa"></MyComponent4>
+                <MyComponent4 color="red"></MyComponent4>
+
                 
             </View>
         )
