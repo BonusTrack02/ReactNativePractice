@@ -15,9 +15,26 @@ export default class Main extends Component {
             <Button title="button"></Button>
         </View>
 
+        //배열
+        const ccc = [aaa, aaa, bbb, this.showItemView()]
+
+        //실제 대부분의 대량의 데이터는 컴포넌트가 아니라 그냥 데이터인 경우가 많다
+        const datas = ["aa", "bb", "cc", "dd", "ee"]
+
+        //배열의 .map() 메소드 이용
+        //배열의 요소만큼 function이 호출되고 파라미터로 해당 요소의 값과 인덱스 번호를 전달하며 요소의 갯수만큼 새로운 배열을 만들어서 최종 리턴
+        const xxx = datas.map(function(value, index, array){
+            return (
+                <View style={{margin:4, borderWidth:1, padding:8, borderRadius:4}}>
+                    <Text>{value}</Text>
+                </View>
+            )
+        })
+
         return (
             <View style={style.root}>
                 <Text style={style.text}>List layout</Text>
+                {xxx}
                 {aaa}
 
                 {bbb}
@@ -25,6 +42,13 @@ export default class Main extends Component {
 
                 {/* 컴포넌트를 리턴하는 함수를 호출 */}
                 {this.showItemView()}
+
+                {/* 파라미터 전달을 통해 콘텐츠가 다른 컴포넌트가 보여진다 */}
+                {this.showItemView2("sam", "first", "indigo")}
+                {this.showItemView2("robin", "second", "green")}
+
+                {/* 컴포넌트를 요소로 가진 배열 - 배열을 그냥 출력하면 요소 값이 나열된다 */}
+                {ccc}
             </View>
         )
     }
@@ -35,6 +59,16 @@ export default class Main extends Component {
             <View style={{margin:8}}>
                 <Text>Nice world</Text>
                 <Button title="press me"></Button>
+            </View>
+        )
+    }
+
+    //파라미터를 전달받아 컴포넌트를 만들고 리턴하는 메소드 정의
+    showItemView2 (name, title, color){
+        return (
+            <View style={{margin:8}}>
+                <Text>Nice {name}</Text>
+                <Button title={title} color={color}></Button>
             </View>
         )
     }
